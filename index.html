@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script defer src="https://kit.fontawesome.com/1182fbd698.js" crossorigin="anonymous"></script>
+    <script defer src="./js/script.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="./css/zero.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/media.css">
+</head>
+
+<body>
+    <audio id="alarm" src="./alarm.mp3"></audio>
+    <div class="menu">
+        <button class="menu__toggle">
+            <i class="fa-solid gear fa-gear"></i>
+        </button>
+        <div class="menu__alarm-box">
+            <div>
+                <button class="menu__alarm">
+                    <i class="fa-regular fa-bell"></i>
+                </button>
+                <input class="menu__alarm-input" value="07:00" type="time">
+            </div>
+            <div>
+                <button class="menu__alarm_minutes">
+                    <i class="fa-regular fa-clock"></i>
+                </button>
+                <input class="menu__alarm_minutes-input" type="number" min="0" max="59">
+            </div>
+        </div>
+    </div>
+    <div class="clock">
+        <div class="time">
+            <div class="point"></div>
+            <div class="seconds">
+                <img class="" src="./img/secondsGrizzli.svg" alt="">
+            </div>
+            <div class="hours">
+                <img class="" src="./img/hoursgrizzli.svg" alt="">
+            </div>
+            <div class="minutes">
+                <img class="" src="./img/minutesgrizzli.svg" alt="">
+            </div>
+            <div class="miliseconds">
+                <img class="" src="./img/milisecondsGrizzli.svg" alt="">
+            </div>
+            <div class="alarm-arrow"></div>
+            <div class="alarm-minutes-arrow"></div>
+        </div>
+        <div class="time__numbers"><span class="time__numbers_1"></span> <p>:</p> <span class="time__numbers_2"></span> <p>:</p> <span class="time__numbers_3"></span></div>
+    </div>
+    
+</body>
+
+</html>

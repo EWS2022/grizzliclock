@@ -1,0 +1,26 @@
+@media(orientation: portrait) {
+    .clock {
+        height: 80vw;
+        width: 80vw;
+    }
+
+    .seconds img {
+        width: 12vw;
+    }
+
+    .minutes img {
+        width: 16vw;
+    }
+
+    .hours img {
+        width: 18vw;
+    }
+
+    .miliseconds img {
+        width: 10vw;
+    }
+
+    .time__numbers {
+        font-size: 7vw;
+    }
+}

@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css2?family=Lunasima&display=swap');
+body {
+    height: 100vh;
+    width: 100vw;
+    background: url(../img/Bg.png) center/cover no-repeat;
+    position: relative;
+    --secondStartDegrees: 0deg;
+    --secondEndDegrees: 0deg;
+    --minuteStartDegrees: 0deg;
+    --minuteEndDegrees: 0deg;
+    --hoursStartDegrees: 0deg;
+    --hoursEndDegrees: 0deg;
+    --alarmDegrees: 210deg;
+    font-family: 'Lunasima', sans-serif;
+    --alarmMinutesDegrees: 0deg;
+}
+
+.clock {
+    height: 80vh;
+    width: 80vh;
+    background: url(../img/Clock.png) center/cover no-repeat;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    border-radius: 100%;
+}
+
+.point {
+    width: 6%;
+    height: 6%;
+    background: #FFB444;
+    border: 0.5vh solid #FF0000;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    border-radius: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 8;
+}
+
+.seconds {
+    width: 0.3%;
+    height: 65%;
+    background: #FF0000;
+    z-index: 4;
+    transform: translate(-50%, -77%) rotate(var( --secondStartDegrees));
+    transform-origin: 50% 77%;
+    animation: seconds 60s infinite linear;
+}
+
+.seconds img {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-49.7%, 0%);
+    transform-origin: top center;
+    animation: grizzliseconds 60s infinite linear;
+    width: 12vh;
+}
+
+.hours {
+    width: 4%;
+    height: 38%;
+    background: #FFB444;
+    z-index: 3;
+    transform: translate(-50%, -77%) rotate(0);
+    animation: hours 43200s infinite linear;
+    transform-origin: 50% 77%;
+    
+}
+
+.hours img {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-49%, -77%) rotate(0);
+    transform-origin: top center;
+    width: 18vh;
+    animation: grizzlihours 43200s infinite linear;
+}
+
+.minutes {
+    width: 2%;
+    height: 52%;
+    background: #FFB444;
+    z-index: 2;
+    transform: translate(-50%, -77%) rotate(0);
+    animation: minutes 3600s infinite linear;
+    transform-origin: 50% 77%;
+    
+}
+
+.minutes img {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-49.7%, 0%);
+    transform-origin: top center;
+    width: 16vh;
+    animation: grizzliminutes 3600s infinite linear;
+}
+
+.miliseconds {
+    width: 0.2%;
+    height: 70%;
+    background: #790000;
+    z-index: 2;
+    transform: translate(-50%, -77%) rotate(0);
+    transform-origin: 50% 77%;
+    animation: minutes 1s infinite linear; 
+}
+
+.miliseconds img {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0%) rotate(180deg);
+    transform-origin: top center;
+    width: 10vh;
+}
+
+.alarm-arrow, .alarm-minutes-arrow {
+    width: 0.5%;
+    height: 65%;
+    background: #ffffff;
+    z-index: 4;
+    transform-origin: 50% 77%;
+    opacity: 0;
+    transition: 0.4s;
+    transform: translate(-50%, -77%) rotate(var(--alarmDegrees));
+}
+
+.alarm-minutes-arrow {
+    background: #abd8ff;
+    width: 0.4%;
+    height: 64%;
+    transform: translate(-50%, -77%) rotate(var(--alarmMinutesDegrees));
+}
+
+.alarm-arrow_minutes_active {
+    opacity: 1;
+}
+
+.alarm-arrow_active {
+    opacity: 1;
+    transform: translate(-50%, -77%) rotate(var(--alarmDegrees));
+}
+
+.seconds, .hours, .minutes, .miliseconds, .alarm-arrow, .alarm-minutes-arrow {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.time__numbers {
+    position: absolute;
+    left: 50%;
+    top: 70%;
+    font-size: 7vh;
+    color: #FFB444;
+    transform: translate(-50%, 0);
+}
+
+p {
+    display: inline-block;
+}
+
+@keyframes seconds {
+    0% {
+        transform: translate(-50%, -77%) rotate(var( --secondStartDegrees));
+    }
+    100% {
+        transform: translate(-50%, -77%) rotate(var(--secondEndDegrees));
+    }
+}
+
+
+@keyframes minutes {
+    0% {
+        transform: translate(-50%, -77%) rotate(var( --minuteStartDegrees));
+    }
+    100% {
+        transform: translate(-50%, -77%) rotate(var(--minuteEndDegrees));
+    }
+}
+
+@keyframes hours {
+    0% {
+        transform: translate(-50%, -77%) rotate(var( --hoursStartDegrees));
+    }
+    100% {
+        transform: translate(-50%, -77%) rotate(var(--hoursEndDegrees));
+    }
+}
+
+@keyframes grizzliseconds {
+    0% {
+        transform: translate(-49.7%, 0%) rotate(calc(var( --secondStartDegrees) * -1));
+    }
+    100% {
+        transform: translate(-49.7%, 0%) rotate(calc(var( --secondEndDegrees) * -1));
+    }
+}
+
+@keyframes grizzliminutes {
+    0% {
+        transform: translate(-49.7%, 0%) rotate(calc(var( --minuteStartDegrees) * -1));
+    }
+    100% {
+        transform: translate(-49.7%, 0%) rotate(calc(var( --minuteEndDegrees) * -1));
+    }
+}
+
+@keyframes grizzlihours {
+    0% {
+        transform: translate(-49.7%, 0%) rotate(calc(var( --hoursStartDegrees) * -1));
+    }
+    100% {
+        transform: translate(-49.7%, 0%) rotate(calc(var( --hoursEndDegrees) * -1));
+    }
+}
+
+@keyframes miliseconds {
+    0% {
+        transform: translate(-50%, -77%) rotate(var( --milisecondsStartDegrees));
+    }
+    100% {
+        transform: translate(-50%, -77%) rotate(var(--milisecondsEndDegrees));
+    }
+}
+
+
+/* /////////////////////////////////////////////////////////////////////////////// */
+
+.menu {
+    border: 1px solid #FFB444;
+    position: fixed;
+    padding: 20px;
+    top: 5vh;
+    right: 0;
+    transform: translateX(100%);
+    transition: 0.4s;
+}
+
+.menu__alarm-box{
+    display: flex;
+    flex-direction: column;
+}
+
+.menu__toggle{
+    background: transparent;
+    color: #FFB444;
+    font-size: 24px;
+    border: 1px solid #FFB444;
+    padding: 8px;
+    position: absolute;
+    top: -1px;
+    left: 0;
+    transform: translateX(-100%);
+}
+
+.menu_active{
+    transform: translateX(0);
+}
+
+.gear_active {
+    animation: openmenu 0.4s;
+}
+
+.gear_inactive {
+    animation: closemenu 0.4s;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.menu__alarm, .menu__alarm_minutes {
+    font-size: 24px;
+    background: transparent;
+    color: #FFB444;
+    opacity: 0.5;
+    transition: 0.4s;
+}
+
+.menu__alarm_active, .menu__alarm_minutes_active {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.menu__alarm-box {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.menu__alarm-input, .menu__alarm_minutes-input{
+    border: 2px solid #FFB444;
+    background: transparent;
+    font-size: 16px;
+    padding: 4px;
+    opacity: 0.5;
+    pointer-events: none;
+    transition: 0.4s;
+    width: 160px;
+}
+
+
+.menu__alarm-input_active, .menu__alarm_minutes-input_active {
+    opacity: 1;
+    pointer-events: visible;
+    cursor: pointer;
+    background: #FFB444;
+}
+
+
+@keyframes closemenu {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes openmenu {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
