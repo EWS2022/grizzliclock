@@ -13,6 +13,7 @@ body {
     --alarmDegrees: 210deg;
     font-family: 'Lunasima', sans-serif;
     --alarmMinutesDegrees: 0deg;
+    overflow: hidden;
 }
 
 .clock {
