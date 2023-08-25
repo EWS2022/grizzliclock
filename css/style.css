@@ -132,17 +132,6 @@ body {
     transform: translate(-50%, -77%) rotate(var(--alarmDegrees));
 }
 
-.alarm-minutes-arrow {
-    background: #abd8ff;
-    width: 0.4%;
-    height: 64%;
-    transform: translate(-50%, -77%) rotate(var(--alarmMinutesDegrees));
-}
-
-.alarm-arrow_minutes_active {
-    opacity: 1;
-}
-
 .alarm-arrow_active {
     opacity: 1;
     transform: translate(-50%, -77%) rotate(var(--alarmDegrees));
@@ -155,6 +144,18 @@ body {
     left: 50%;
 }
 
+.alarm-minutes-arrow {
+    background: transparent;
+    box-shadow: none;
+    width: 2%;
+    height: 69%;
+    transform: translate(-50%, -77%) rotate(var(--alarmMinutesDegrees));
+}
+
+.alarm-arrow_minutes_active {
+    opacity: 1;
+}
+
 .time__numbers {
     position: absolute;
     left: 50%;
@@ -162,6 +163,15 @@ body {
     font-size: 7vh;
     color: #FFB444;
     transform: translate(-50%, 0);
+}
+
+.alarm-minutes-arrow i {
+    font-size: 18px;
+    color: #FFB444;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 p {

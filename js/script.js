@@ -26,11 +26,15 @@ const alarmArrow = document.querySelector('.alarm-arrow');
 const alarmArrowMinutes = document.querySelector('.alarm-minutes-arrow');
 const audioAlarm = document.querySelector('#alarm');
 const alarmInputMinutes = document.querySelector('.menu__alarm_minutes-input');
+const audioAlarmMinutes = document.querySelector('#alarmMinutes')
 audioAlarm.volume = 0.5;
+audioAlarmMinutes.volume = 0.5;
 ///////////////////////////////////////////////
 let alarmHours = 7;
 let alarmMinutes = 0;
 let alarmDegrees;
+let alarmRemember = 0;
+let alarmMinutesDegrees;
 gear.classList.add('gear_inactive');
 alarmButton.onclick = function () {
     alarmButton.classList.toggle('menu__alarm_active');
@@ -40,7 +44,18 @@ alarmButton.onclick = function () {
     body.style.setProperty('--alarmDegrees', alarmDegrees + 'deg');
 }
 
+alarmInputMinutes.oninput = function () {
+    if (alarmInputMinutes.value > 59) {
+        alarmInputMinutes.value = 59;
+    }
 
+    if (alarmInputMinutes.value < 0) {
+        alarmInputMinutes.value = 0;
+    }
+    alarmMinutesDegrees = parseInt(alarmInputMinutes.value) * 6;
+    body.style.setProperty('--alarmMinutesDegrees', alarmMinutesDegrees + 'deg');
+    alarmRemember = parseInt(alarmInputMinutes.value);
+}
 
 menuAlarmMinutesButton.onclick = function () {
     menuAlarmMinutesButton.classList.toggle('menu__alarm_minutes_active');
@@ -56,6 +71,14 @@ alarmInput.onchange = function () {
     alarmDegrees = alarmHours * 30 + alarmMinutes * 0.5;
     body.style.setProperty('--alarmDegrees', alarmDegrees + 'deg');
 }
+
+alarmInputMinutes.onchange = function () {
+    alarmRemember = parseInt(alarmInputMinutes.value);
+    alarmMinutesDegrees = parseInt(alarmInputMinutes.value) * 6;
+    body.style.setProperty('--alarmMinutesDegrees', alarmMinutesDegrees + 'deg');
+}
+
+
 menuButton.onclick = function () {
     menu.classList.toggle('menu_active');
     gear.classList.toggle('gear_active');
@@ -76,9 +99,14 @@ setInterval(() => {
     let currentSecondsNumber = currentTimeDate.getSeconds();
     let points = document.querySelectorAll('.time__numbers p');
 
-    if (currentHoursNumber == alarmHours && currentMinutesNumber == alarmMinutes && currentSecondsNumber == 0) {
+    if (currentHoursNumber == alarmHours && currentMinutesNumber == alarmMinutes && currentSecondsNumber == 0 && alarmButton.classList.contains('menu__alarm_active')) {
         console.log('alarm');
         audioAlarm.play();
+    }
+
+    if (currentMinutesNumber == alarmRemember && currentSecondsNumber == 0 && menuAlarmMinutesButton.classList.contains('menu__alarm_minutes_active')) {
+        console.log('alarm');
+        audioAlarmMinutes.play();
     }
 
     if (currentSecondsNumber < 10) {
